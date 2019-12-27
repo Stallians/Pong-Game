@@ -7,7 +7,7 @@ window = turtle.Screen()
 window.title('Pong by @stallians')
 window.bgcolor("black")
 window.setup(width=800, height=600)
-window.tracer(0)
+window.tracer(n=1, delay=1)
 
 # paddle A
 paddle_a = turtle.Turtle()
