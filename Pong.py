@@ -1,5 +1,5 @@
 # Simple Pong Game in Python3 for Beginners
-# Part 5: Collision between ball and paddle
+# Part 6: Scoring
 
 import turtle
 
@@ -36,6 +36,18 @@ ball.penup()
 ball.goto(0, 0)
 ball.dx = 1
 ball.dy = 1
+
+# scoring
+score_a = 0
+score_b = 0
+
+scorer = turtle.Turtle()
+scorer.speed(0)
+scorer.penup()
+scorer.goto(0, 270)
+scorer.hideturtle()
+scorer.color('White')
+scorer.write("Player 1:{}  Player 2:{}".format(score_a, score_b),align='center', font=('Courier',10, 'normal'))
 
 # Functions
 def paddle_a_up():
@@ -83,10 +95,16 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0,0)
         ball.dx *= -1
+        score_a +=1
+        scorer.clear()
+        scorer.write("Player 1:{}  Player 2:{}".format(score_a, score_b),align='center', font=('Courier',10, 'normal'))
 
     if ball.xcor() < -390:
         ball.goto(0,0)
         ball.dx *= -1
+        score_b +=1
+        scorer.clear()
+        scorer.write("Player 1:{}  Player 2:{}".format(score_a, score_b),align='center', font=('Courier',10, 'normal'))
 
     # ball and paddle collision
     if (ball.xcor() > 330 and ball.xcor() < 370) and (ball.ycor() > paddle_b.ycor()-40 and ball.ycor() < paddle_b.ycor()+40):
