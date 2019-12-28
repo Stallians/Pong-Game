@@ -53,22 +53,34 @@ scorer.write("Player A:{}  Player B:{}".format(score_a, score_b),align='center',
 # Functions
 def paddle_a_up():
     y_pos = paddle_a.ycor()
-    y_pos += 20
+    if y_pos < 250:
+        y_pos += 20
+    else:
+        y_pos = 250
     paddle_a.sety(y_pos)
 
 def paddle_a_down():
     y_pos = paddle_a.ycor()
-    y_pos -= 20
+    if y_pos > -250:
+        y_pos -= 20
+    else:
+        y_pos = -250
     paddle_a.sety(y_pos)
 
 def paddle_b_up():
     y_pos = paddle_b.ycor()
-    y_pos += 20
+    if y_pos < 250:
+        y_pos += 20
+    else:
+        y_pos = 250
     paddle_b.sety(y_pos)
 
 def paddle_b_down():
     y_pos = paddle_b.ycor()
-    y_pos -= 20
+    if y_pos > -250:
+        y_pos -= 20
+    else:
+        y_pos = -250
     paddle_b.sety(y_pos)
 
 # listen for key press: Key bindings
