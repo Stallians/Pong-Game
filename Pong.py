@@ -1,7 +1,8 @@
 # Simple Pong Game in Python3 for Beginners
-# Part 6: Scoring
+# Part 7: Adding Sounds
 
 import turtle
+import os
 
 window = turtle.Screen()
 window.title('Pong by @stallians')
@@ -87,10 +88,12 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        
+        os.system("aplay bounce.wav&")
+
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
+        os.system("aplay bounce.wav&")
 
     if ball.xcor() > 390:
         ball.goto(0,0)
@@ -110,7 +113,9 @@ while True:
     if (ball.xcor() > 330 and ball.xcor() < 370) and (ball.ycor() > paddle_b.ycor()-40 and ball.ycor() < paddle_b.ycor()+40):
         ball.setx(330)
         ball.dx *= -1
+        os.system("aplay bounce.wav&")
 
     if (ball.xcor() < -330 and ball.xcor() > -370) and (ball.ycor() > paddle_a.ycor()-40 and ball.ycor() < paddle_a.ycor()+40):
         ball.setx(-330)
         ball.dx *= -1
+        os.system("aplay bounce.wav&")
